@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpertLancer - Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        /* Additional custom styles */
+        .feature-box img {
+            width: 64px;
+            height: 64px;
+        }
+
+        .feature-box h3 {
+            font-size: 1.25rem;
+            /* 20px */
+        }
+
+        .feature-box p {
+            font-size: 0.875rem;
+            /* 14px */
+        }
+
+        @media (max-width: 640px) {
+            .feature-box h3 {
+                font-size: 1rem;
+                /* 16px */
+            }
+
+            .feature-box p {
+                font-size: 0.75rem;
+                /* 12px */
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white p-4 md:p-5 flex justify-between items-center shadow-md">
+        <div class="flex justify-between items-center w-full md:w-auto">
+            <a class="text-2xl font-bold mr-40 text-blue-600 whitespace-nowrap" href="/">ExpertLancer</a>
+            <button id="menu-toggle" class="md:hidden flex items-center text-gray-600 hover:text-blue-600">
+                <i class="ri-menu-line text-xl"></i>
+            </button>
+        </div>
+        <nav class="hidden md:flex flex-1 justify-center">
+            <ul id="menu"
+                class="hidden md:flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-lg font-medium">
+                <li><a href="#" class="text-blue-600 hover:text-blue-800 flex items-center"><i
+                            class="ri-home-line text-xl mr-2"></i>Home</a></li>
+                <li><a href="#" class="hover:text-blue-600 flex items-center"><i
+                            class="ri-user-search-line text-xl mr-2"></i>Find Freelancers</a></li>
+                <li><a href="/user-profile" class="hover:text-blue-600 flex items-center"><i
+                            class="ri-user-line text-xl mr-2"></i>Profile</a></li>
+            </ul>
+        </nav>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="/project/upload"
+                class="bg-blue-600 text-white py-2 px-4 md:py-2 md:px-6 rounded-full font-bold flex items-center"><i
+                    class="ri-upload-line text-xl mr-2"></i>Upload Project</a>
+            <a href="/job/upload"
+                class="bg-green-600 text-white py-2 px-4 md:py-2 md:px-6 rounded-full font-bold flex items-center"><i
+                    class="ri-upload-line text-xl mr-2"></i>Upload Job</a>
+            <a href="/logout" class="text-red-600 hover:text-red-800 text-xl md:text-2xl flex items-center"><i
+                    class="ri-logout-box-line"></i></a>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-white shadow-md md:hidden">
+        <ul class="flex flex-col space-y-4 p-4 text-lg font-medium">
+            <li><a href="#" class="text-blue-600 hover:text-blue-800 flex items-center"><i
+                        class="ri-home-line text-xl mr-2"></i>Home</a></li>
+            <li><a href="#" class="hover:text-blue-600 flex items-center"><i
+                        class="ri-briefcase-line text-xl mr-2"></i>Find work</a></li>
+            <li><a href="#" class="hover:text-blue-600 flex items-center"><i
+                        class="ri-user-search-line text-xl mr-2"></i>Find Freelancers</a></li>
+            <li><a href="/user-profile" class="hover:text-blue-600 flex items-center"><i
+                        class="ri-user-line text-xl mr-2"></i>Profile</a></li>
+            <li><a href="/project/upload" class="hover:text-blue-600 flex items-center"><i
+                        class="ri-upload-line text-xl mr-2"></i>Upload Project</a></li>
+            <li><a href="/job/upload" class="hover:text-blue-600 flex items-center"><i
+                        class="ri-upload-line text-xl mr-2"></i>Upload Job</a></li>
+            <li><a href="/logout" class="text-red-600 hover:text-red-800 flex items-center"><i
+                        class="ri-logout-box-line text-xl mr-2"></i>Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="text-center py-8 md:py-12 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Are you looking for Freelancers?</h1>
+            <p class="text-base md:text-lg text-gray-600 mb-4 md:mb-6">Hire Great Freelancers, Fast. ExpertLancer helps
+                you hire elite freelancers at a moment's notice.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="#"
+                    class="bg-blue-600 text-white py-2 px-4 md:py-3 md:px-6 rounded-lg font-bold text-center">Hire a
+                    freelancer</a>
+
+            </div>
+        </div>
+    </section>
+
+  <!-- Our Top Performers Section -->
+<section class="py-10 bg-gradient-to-r from-teal-100 to-teal-200 text-center">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-teal-800 mb-8">Our Top Performers</h2>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Performer 1 -->
+            <div class="performer-box flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+                <img src="https://ui-avatars.com/api/?name=John+Doe" alt="John Doe" class="w-24 h-24 rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-teal-800 mb-2">John Doe</h3>
+                <p class="text-gray-600 mb-4">Senior Developer with 5 years of experience in full-stack development.</p>
+                <div class="flex flex-col space-y-4 mb-4">
+                    <a href="mailto:john.doe@example.com" class="bg-teal-600 hover:bg-gray-700 hover:text-white text-black px-6 py-3 rounded-md border border-teal-700 hover:bg-teal-700 transition-colors duration-300 text-lg font-semibold">Contact Me</a>
+                    <a href="/profile/john-doe" class="bg-teal-600 hover:bg-gray-700 hover:text-white px-6 py-3 rounded-md border border-teal-700 hover:bg-teal-700 transition-colors duration-300 text-lg font-semibold">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Performer 2 -->
+            <div class="performer-box flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+                <img src="https://ui-avatars.com/api/?name=Jane+Smith" alt="Jane Smith" class="w-24 h-24 rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-teal-800 mb-2">Jane Smith</h3>
+                <p class="text-gray-600 mb-4">Creative Designer specializing in UX/UI with a passion for innovative designs.</p>
+                <div class="flex flex-col space-y-4 mb-4">
+                    <a href="mailto:jane.smith@example.com" class="bg-teal-600 hover:bg-gray-700 hover:text-white px-6 py-3 rounded-md border border-teal-700 hover:bg-teal-700 transition-colors duration-300 text-lg font-semibold">Contact Me</a>
+                    <a href="/profile/jane-smith" class="bg-teal-600 hover:bg-gray-700 hover:text-white px-6 py-3 rounded-md border border-teal-700 hover:bg-teal-700 transition-colors duration-300 text-lg font-semibold">View Profile</a>
+                </div>
+                
+            </div>
+            
+            <!-- Performer 3 -->
+            <div class="performer-box flex flex-col items-center bg-white p-6 rounded-lg shadow-lg">
+                <img src="https://ui-avatars.com/api/?name=Alex+Johnson" alt="Alex Johnson" class="w-24 h-24 rounded-full mb-4">
+                <h3 class="text-xl font-semibold text-teal-800 mb-2">Alex Johnson</h3>
+                <p class="text-gray-600 mb-4">Marketing Expert with a focus on digital strategies and growth hacking.</p>
+                <div class="flex flex-col space-y-4 mb-4">
+                    <a href="mailto:alex.johnson@example.com" class="bg-teal-600 hover:bg-gray-700 hover:text-white px-6 py-3 rounded-md border border-teal-700 hover:bg-teal-700 transition-colors duration-300 text-lg font-semibold">Contact Me</a>
+                    <a href="/profile/alex-johnson" class="bg-teal-600 hover:bg-gray-700 hover:text-white px-6 py-3 rounded-md border border-teal-700 hover:bg-teal-700 transition-colors duration-300 text-lg font-semibold">View Profile</a>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-100 py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between items-center">
+                <div class="w-full md:w-auto mb-4 md:mb-0">
+                    <h5 class="text-lg font-bold mb-2">ExpertLancer</h5>
+                    <p>Connecting talent with opportunity.</p>
+                </div>
+                <ul class="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
+                    <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Find Freelancers</a></li>
+                    <li><a href="/login-user" class="text-gray-400 hover:text-white">Log In</a></li>
+                    <li><a href="/register-user" class="text-gray-400 hover:text-white">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="text-center mt-4 text-gray-500">
+                <p>&copy; 2024 ExpertLancer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>

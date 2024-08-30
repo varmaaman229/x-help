@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Job</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container">
+        <h1 class="text-3xl font-bold mb-6 text-center text-indigo-900">Edit Job</h1>
+        <form action="/job/edit/<%= job._id %>" method="POST" class="space-y-4">
+            <div>
+                <label for="title" class="block text-lg font-medium text-gray-700">Title:</label>
+                <input type="text" id="title" name="title" value="<%= job.title %>" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label for="description" class="block text-lg font-medium text-gray-700">Description:</label>
+                <textarea id="description" name="description" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"><%= job.description %></textarea>
+            </div>
+            <div>
+                <label for="location" class="block text-lg font-medium text-gray-700">Location:</label>
+                <input type="text" id="location" name="location" value="<%= job.location %>" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label for="salary" class="block text-lg font-medium text-gray-700">Salary:</label>
+                <input type="text" id="salary" name="salary" value="<%= job.salary %>" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div class="flex justify-between">
+                <a href="/user-profile" class="text-blue-500 hover:text-blue-700">Back to Profile</a>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600">Update Job</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

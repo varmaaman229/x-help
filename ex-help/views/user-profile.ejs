@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ExpertLancer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        /* Custom Styles for Professional UI */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            color: #1a202c;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .projects-section,
+        .jobs-section {
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+            background: #2d3748;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .btn {
+            transition: all 0.2s ease;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-blue-500:hover {
+            color: #2b6cb0;
+        }
+
+        .text-yellow-500:hover {
+            color: #d69e2e;
+        }
+
+        .text-red-500:hover {
+            color: #c53030;
+        }
+
+        .section-content {
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .lg\:flex-row {
+                flex-direction: column;
+            }
+
+            .lg\:space-x-8 {
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white p-4 md:p-5 flex justify-between items-center shadow">
+        <a class="text-2xl font-bold text-blue-700" href="/">ExpertLancer</a>
+        <div class="flex flex-wrap lg:space-x-4 items-center">
+            <a href="/project/upload"
+                class="bg-blue-700 text-white py-2 px-4 rounded-lg hover:bg-blue-800 shadow flex items-center btn mb-2 lg:mb-0">
+                <i class="ri-upload-line mr-2"></i> Upload Your Project
+            </a>
+            <a href="/job/upload"
+                class="bg-purple-700 text-white py-2 px-4 rounded-lg hover:bg-purple-800 shadow flex items-center btn mb-2 lg:mb-0">
+                <i class="ri-briefcase-line mr-2"></i> Upload Job Opening
+            </a>
+            <a href="/" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 shadow flex items-center btn mb-2 lg:mb-0">
+                <i class="ri-home-line mr-2"></i> Home
+            </a>
+            <a href="/logout"
+                class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 shadow flex items-center btn">
+                <i class="ri-logout-box-line mr-2"></i> Logout
+            </a>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <div class="container mx-auto p-8">
+        <div class="flex flex-col lg:flex-row lg:justify-between mb-8">
+            <div class="flex items-start mb-4 lg:mb-0">
+                <img class="h-24 w-24 rounded-full object-cover border-4 border-blue-500 shadow-lg"
+                    src="data:image/png;base64,<%= user.image %>" alt="Profile Image">
+                <h1 class="text-3xl font-extrabold text-gray-900 ml-4">Hey, <%= user.username %> 👋🏻</h1>
+            </div>
+        </div>
+
+        <!-- Flex Container for Equal Sections -->
+        <div class="flex flex-col lg:flex-row lg:space-x-8">
+            <!-- Projects Section -->
+            <section class="w-full lg:w-1/2 projects-section">
+                <div class="section-header">Your Projects</div>
+                <% if (user.projects.length > 0) { %>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 section-content">
+                    <% user.projects.forEach((project) => { %>
+                    <div class="card">
+                        <h3 class="title">
+                            <%= project.title %>
+                        </h3>
+                        <div class="text-center flex justify-around mt-4">
+                            <a href="/project/view/<%= project._id %>"
+                                class="text-blue-500 hover:text-blue-700 text-sm font-medium flex items-center">
+                                <i class="ri-eye-line mr-1 text-blue-500"></i> View
+                            </a>
+                            <a href="/project/edit/<%= project._id %>"
+                                class="text-yellow-500 hover:text-yellow-700 text-sm font-medium flex items-center">
+                                <i class="ri-edit-line mr-1 text-yellow-500"></i> Edit
+                            </a>
+                            <form action="/project/delete/<%= project._id %>" method="POST"
+                                onsubmit="return confirm('Are you sure you want to delete this project?');">
+                                <button type="submit"
+                                    class="text-red-500 hover:text-red-700 text-sm font-medium flex items-center">
+                                    <i class="ri-delete-bin-line mr-1 text-red-500"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+                <% } else { %>
+                <p class="text-gray-600 text-sm">No projects available. Please upload a new project.</p>
+                <% } %>
+            </section>
+
+            <!-- Jobs Section -->
+            <section class="w-full lg:w-1/2 jobs-section mt-6 lg:mt-0">
+                <div class="section-header">Your Jobs</div>
+                <% if (user.jobs.length > 0) { %>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 section-content">
+                    <% user.jobs.forEach((job) => { %>
+                    <div class="card">
+                        <h3 class="title">
+                            <%= job.title %>
+                        </h3>
+                        <div class="text-center flex justify-around mt-4">
+                            <a href="/job/view/<%= job._id %>"
+                                class="text-blue-500 hover:text-blue-700 text-sm font-medium flex items-center">
+                                <i class="ri-eye-line mr-1 text-blue-500"></i> View
+                            </a>
+                            <a href="/job/edit/<%= job._id %>"
+                                class="text-yellow-500 hover:text-yellow-700 text-sm font-medium flex items-center">
+                                <i class="ri-edit-line mr-1 text-yellow-500"></i> Edit
+                            </a>
+                            <form action="/job/delete/<%= job._id %>" method="POST"
+                                onsubmit="return confirm('Are you sure you want to delete this job?');">
+                                <button type="submit"
+                                    class="text-red-500 hover:text-red-700 text-sm font-medium flex items-center">
+                                    <i class="ri-delete-bin-line mr-1 text-red-500"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+                <% } else { %>
+                <p class="text-gray-600 text-sm">No job openings available. Please upload a new job.</p>
+                <% } %>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

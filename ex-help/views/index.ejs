@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancing Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <style>
+        /* Additional custom styles */
+        .feature-box img {
+            width: 64px;
+            height: 64px;
+        }
+        .feature-box h3 {
+            font-size: 1.25rem; /* 20px */
+        }
+        .feature-box p {
+            font-size: 0.875rem; /* 14px */
+        }
+        @media (max-width: 640px) {
+            .feature-box h3 {
+                font-size: 1rem; /* 16px */
+            }
+            .feature-box p {
+                font-size: 0.75rem; /* 12px */
+            }
+        }
+        
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<!-- Header -->
+<header class="bg-white p-4 md:p-5 flex flex-col md:flex-row justify-between items-center shadow-md">
+    <!-- Logo Section -->
+    <div class="flex justify-between items-center w-full md:w-auto">
+        <a class="text-2xl font-bold text-blue-600 whitespace-nowrap" href="/">ExpertLancer</a>
+        <button id="menu-toggle" class="md:hidden flex items-center text-gray-600 hover:text-blue-600">
+            <i class="ri-menu-line text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Centered Navigation Links -->
+    <nav class="w-full md:flex flex-1 md:justify-center mt-4 md:mt-0">
+        <ul id="menu" class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-lg font-medium md:justify-center">
+            <li><a href="/" class="text-blue-600 hover:text-blue-800 flex items-center"><i class="ri-home-line text-xl mr-2"></i>Home</a></li>
+            <li><a href="/login-user" class="hover:text-blue-600 flex items-center"><i class="ri-user-search-line text-xl mr-2"></i>Find Freelancers</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-teal-600 flex items-center transition-colors duration-300"><i class="ri-briefcase-line text-xl mr-2"></i>Find Work</a></li>
+        </ul>
+    </nav>
+
+    <!-- Log In/Sign Up Section -->
+    <div class="flex space-x-4 mt-4 mr-8 md:mt-0">
+        <!-- Log In Dropdown -->
+        <div class="relative group">
+            <a href="#" class="block text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-md transition-colors duration-300 flex items-center hover:shadow-lg">
+                Log In<i class="ri-arrow-down-s-line ml-2 text-sm"></i>
+            </a>
+            <ul class="absolute left-0 w-48 hidden bg-gray-900 bg-opacity-70 text-gray-400 rounded-md shadow-lg transition-transform duration-300 transform group-hover:translate-y-2 group-focus-within:translate-y-2">
+                <li class="border-b border-white">
+                    <a href="/login-freelancer" class="block px-6 py-3 text-white hover:text-blue-500 hover:bg-gray-800 transition-colors duration-300">
+                        Login as Freelancer
+                    </a>
+                </li>
+                <li>
+                    <a href="/login-user" class="block px-6 py-3 text-white hover:text-blue-500 hover:bg-gray-800 transition-colors duration-300">
+                        Login as Client
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+
+
+     <!-- Sign Up Dropdown -->
+<div class="relative group">
+    <a href="#" class="block text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-md transition-colors duration-300 flex items-center">
+        Sign Up<i class="ri-arrow-down-s-line ml-2 text-sm"></i>
+    </a>
+    <ul class="absolute left-0 w-48 hidden bg-gray-900 bg-opacity-70 text-gray-400 rounded-md shadow-lg transition-transform duration-300 transform group-hover:translate-y-2 group-focus-within:translate-y-2">
+        <li class="border-b border-white">
+            <a href="/register-freelancer" class="block px-4 py-3 text-white hover:text-blue-500 hover:bg-gray-800 transition-colors duration-300">
+                Sign Up as Freelancer
+            </a>
+        </li>
+        <li>
+            <a href="/register-user" class="block px-6 py-3 text-white hover:text-blue-500 hover:bg-gray-800 transition-colors duration-300">
+                Sign Up as Client
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+    </div>
+</header>
+
+
+
+  <!-- Hero Section -->
+<section class="text-center py-8 md:py-12 bg-blue-50">
+    <div class="container mx-auto px-4">
+        <h1 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Are you looking for Freelancers or Work?</h1>
+        <p class="text-base md:text-lg text-gray-600 mb-4 md:mb-6">ExpertLancer connects clients with top freelancers and provides exciting opportunities for skilled professionals.</p>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+            <!-- For Clients -->
+            <a href="/login-user" class="bg-blue-600 text-white py-2 px-4 md:py-3 md:px-6 rounded-lg font-bold text-center">Hire a Freelancer</a>
+            <!-- For Freelancers -->
+            <a href="#" class="bg-green-600 text-white py-2 px-4 md:py-3 md:px-6 rounded-lg font-bold text-center">Search for Work</a>
+        </div>
+        <div class="flex flex-col md:flex-row justify-center items-center mt-6 space-y-4 md:space-y-0 md:space-x-4">
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Features Section -->
+    <section class="py-10 bg-gradient-to-r from-teal-100 to-teal-200 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-teal-800 mb-8">Explore Our Services</h2>
+            <div class="flex flex-col lg:flex-row lg:justify-between">
+                <div class="lg:w-1/3 mb-8 lg:mb-0 px-4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-teal-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M5 6h14M5 18h14"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-teal-800 mb-2">User-Friendly Interface</h3>
+                        <p class="text-gray-600">Enjoy a seamless experience with our intuitive and easy-to-navigate interface.</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 mb-8 lg:mb-0 px-4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-teal-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21V6l-8-4-8 4v15"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-teal-800 mb-2">Flexible Customization</h3>
+                        <p class="text-gray-600">Tailor the platform to fit your specific needs with our extensive customization options.</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 px-4">
+                    <div class="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-teal-600 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2v4h-4V2h4zm0 6h-4v4h4V8zm-6 6h4v4h-4v-4zm6-6h4v4h-4V8z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-teal-800 mb-2">Real-Time Analytics</h3>
+                        <p class="text-gray-600">Get actionable insights with real-time data analytics to drive better decision-making.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Boxes Section -->
+    <section class="py-8 md:py-12 bg-gray-50 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-teal-800 mb-8">Features</h2>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div class="feature-box flex flex-col items-center bg-white p-4 rounded-lg shadow-lg">
+                    <img src="https://lh3.googleusercontent.com/nmgCUHpSE6cunNwji-P_eV1_Jh8Xp7asd-O_jtQU9MMrRwmMEgL2GoAXT1xHMgB4l2cIVFFGxejtV69j1UKnM9r7DQ=s120" alt="Create Account" class="mb-4">
+                    <h3 class="text-lg font-semibold text-teal-600 mb-2">Create Account</h3>
+                    <p class="text-sm text-gray-600">First you have to create an account here.</p>
+                </div>
+                <div class="feature-box flex flex-col items-center bg-white p-4 rounded-lg shadow-lg">
+                    <img src="https://cdn-icons-png.flaticon.com/512/10190/10190553.png" alt="Search Work" class="mb-4">
+                    <h3 class="text-lg font-semibold text-teal-600 mb-2">Search Work</h3>
+                    <p class="text-sm text-gray-600">Search the best freelance work here.</p>
+                </div>
+                <div class="feature-box flex flex-col items-center bg-white p-4 rounded-lg shadow-lg">
+                    <img src="https://cdn-icons-png.flaticon.com/512/181/181506.png" alt="Search Freelancer" class="mb-4">
+                    <h3 class="text-lg font-semibold text-teal-600 mb-2">Search Freelancer</h3>
+                    <p class="text-sm text-gray-600">Search the best freelancer for your projects.</p>
+                </div>
+                <div class="feature-box flex flex-col items-center bg-white p-4 rounded-lg shadow-lg">
+                    <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Post Job" class="mb-4">
+                    <h3 class="text-lg font-semibold text-teal-600 mb-2">Post Job</h3>
+                    <p class="text-sm text-gray-600">Post a job opportunity for freelancers to apply.</p>
+                </div>
+                <div class="feature-box flex flex-col items-center bg-white p-4 rounded-lg shadow-lg">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2750/2750870.png" alt="Freelancer Portfolio" class="mb-4">
+                    <h3 class="text-lg font-semibold text-teal-600 mb-2">Freelancer Portfolio</h3>
+                    <p class="text-sm text-gray-600">View detailed portfolios of top freelancers.</p>
+                </div>
+                <div class="feature-box flex flex-col items-center bg-white p-4 rounded-lg shadow-lg">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077048.png" alt="User Dashboard" class="mb-4">
+                    <h3 class="text-lg font-semibold text-teal-600 mb-2">User Dashboard</h3>
+                    <p class="text-sm text-gray-600">Manage your profile and job applications easily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     
+    <div class="fixed bottom-5 right-5 w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer overflow-hidden">
+        <img src="https://media.istockphoto.com/id/1060696342/vector/robot-icon-chat-bot-sign-for-support-service-concept-chatbot-character-flat-style.jpg?s=612x612&w=0&k=20&c=t9PsSDLowOAhfL1v683JMtWRDdF8w5CFsICqQvEvfzY=" alt="Chatbot Logo" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-100 py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-between items-center">
+                <div class="w-full md:w-auto mb-4 md:mb-0">
+                    <h5 class="text-lg font-bold mb-2">ExpertLancer</h5>
+                    <p>Connecting talent with opportunity.</p>
+                </div>
+                <ul class="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
+                    <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Find Work</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Find Freelancers</a></li>
+                    <li><a href="/login-user" class="text-gray-400 hover:text-white">Log In</a></li>
+                    <li><a href="/register-user" class="text-gray-400 hover:text-white">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="text-center mt-4 text-gray-500">
+                <p>&copy; 2024 ExpertLancer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Dropdown toggles
+    const dropdownToggles = document.querySelectorAll('.relative');
+    const dropdownMenus = document.querySelectorAll('.relative ul');
+
+    dropdownToggles.forEach(toggle => {
+        const dropdownMenu = toggle.querySelector('ul');
+
+        toggle.addEventListener('mouseenter', () => {
+            dropdownMenu.classList.remove('hidden');
+        });
+
+        toggle.addEventListener('mouseleave', () => {
+            dropdownMenu.classList.add('hidden');
+        });
+    });
+
+    // Hide dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.relative')) {
+            dropdownMenus.forEach(menu => {
+                menu.classList.add('hidden');
+            });
+        }
+    });
+});
+
+
+        // Toggle menu visibility on mobile
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

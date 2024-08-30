@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Upload Your Project</title>
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-gray-300 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-6 text-indigo-900 text-center">Upload Your Project</h1>
+        <form action="/project/upload" method="POST" enctype="multipart/form-data">
+            <!-- Project Title -->
+            <div class="mb-4">
+                <label for="title" class="block text-gray-700 font-semibold mb-2">Project Title</label>
+                <input type="text" id="title" name="title" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter project title" required>
+            </div>
+            
+            <!-- Project Description -->
+            <div class="mb-4">
+                <label for="description" class="block text-gray-700 font-semibold mb-2">Project Description</label>
+                <textarea id="description" name="description" rows="4" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter project description" required></textarea>
+            </div>
+            
+            <!-- Upload PDF -->
+            <div class="mb-4">
+                <label for="pdf" class="block text-gray-700 font-semibold mb-2">Upload Project PDF</label>
+                <input type="file" id="pdf" name="pdf" accept=".pdf" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required>
+            </div>
+        
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                    <i class="ri-upload-cloud-line mr-2"></i> Submit Project
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

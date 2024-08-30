@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f4f8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Header -->
+    <header class="bg-white shadow-md py-4 px-6">
+        <div class="container mx-auto flex items-center justify-between flex-wrap">
+            <!-- Logo -->
+            <a class="text-2xl font-bold text-blue-600 whitespace-nowrap" href="/">ExpertLancer</a>
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden flex items-center text-gray-600 hover:text-blue-600">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex md:items-center md:justify-center md:gap-4 flex-grow">
+                <input type="text" placeholder="Search by: Job title, Position, Keyword..." class="border rounded px-4 py-2 w-full max-w-xs">
+                <input type="text" placeholder="City, state or zip code" class="border rounded px-4 py-2 w-full max-w-xs">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Find Job</button>
+                <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300">Filters</button>
+            </nav>
+            <!-- User Menu (Desktop) -->
+            <div class="hidden md:flex md:items-center md:gap-4">
+                <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center gap-1">
+                    <i class="ri-user-line text-xl"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/freelancerhome" class="text-blue-600 hover:text-blue-800 flex items-center gap-1">
+                    <i class="ri-home-line text-xl"></i>
+                    <span>Home</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white shadow-md z-50 transform -translate-x-full transition-transform md:hidden">
+        <div class="container mx-auto py-4 px-6">
+            <div class="flex items-center justify-between">
+                <a class="text-2xl font-bold text-blue-600" href="/">ExpertLancer</a>
+                <button id="close-menu" class="text-gray-600 hover:text-blue-600">
+                    <i class="ri-close-line text-2xl"></i>
+                </button>
+            </div>
+            <nav class="mt-4 flex flex-col gap-4">
+                <input type="text" placeholder="Search by: Job title, Position, Keyword..." class="border rounded px-4 py-2 w-full">
+                <input type="text" placeholder="City, state or zip code" class="border rounded px-4 py-2 w-full">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Find Job</button>
+                <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300">Filters</button>
+                <!-- User Menu (Mobile) -->
+                <a href="/profile" class="text-blue-600 hover:text-blue-800 flex items-center gap-1">
+                    <i class="ri-user-line text-xl"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/freelancerhome" class="text-blue-600 hover:text-blue-800 flex items-center gap-1">
+                    <i class="ri-home-line text-xl"></i>
+                    <span>Home</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="bg-white shadow-md py-2">
+        <div class="container mx-auto flex flex-wrap items-center justify-center gap-4 px-4">
+            <a href="#" class="text-blue-600 hover:text-blue-800">Front-end</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">Back-end</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">Development</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">PHP</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">Laravel</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">Bootstrap</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">Developer</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">Team Lead</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">Product Testing</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800">JavaScript</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Job Card 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative">
+                <div class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">INTERNSHIP</div>
+                <h3 class="text-xl font-semibold mb-2">Marketing Officer</h3>
+                <p class="text-gray-600 mb-4">Salary: $20,000 - $25,000</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="Company Logo" class="w-12 h-12 rounded-full">
+                    <p class="text-gray-800">Google Inc.<br>Dhaka, Bangladesh</p>
+                </div>
+                <button class="absolute bottom-4 right-4 text-gray-600 hover:text-blue-600 text-2xl">
+                    &#128276;
+                </button>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative">
+                <div class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">INTERNSHIP</div>
+                <h3 class="text-xl font-semibold mb-2">Junior Graphic Designer</h3>
+                <p class="text-gray-600 mb-4">Salary: $20,000 - $25,000</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/768px-Microsoft_logo.svg.png" alt="Company Logo" class="w-12 h-12 rounded-full">
+                    <p class="text-gray-800">Microsoft<br>New York, USA</p>
+                </div>
+                <button class="absolute bottom-4 right-4 text-gray-600 hover:text-blue-600 text-2xl">
+                    &#128276;
+                </button>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative">
+                <div class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">FULL-TIME</div>
+                <h3 class="text-xl font-semibold mb-2">Senior UX Designer</h3>
+                <p class="text-gray-600 mb-4">Salary: $50,000 - $70,000</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://www.pngall.com/wp-content/uploads/11/Apple-Logo-PNG-HD-Image.png" alt="Company Logo" class="w-12 h-12 rounded-full">
+                    <p class="text-gray-800">Apple Inc.<br>San Francisco, USA</p>
+                </div>
+                <button class="absolute bottom-4 right-4 text-gray-600 hover:text-blue-600 text-2xl">
+                    &#128276;
+                </button>
+            </div>
+
+            <!-- Job Card 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative">
+                <div class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">FULL-TIME</div>
+                <h3 class="text-xl font-semibold mb-2">Python Developer</h3>
+                <p class="text-gray-600 mb-4">Salary: $60,000 - $80,000</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Facebook_svg-512.png" alt="Company Logo" class="w-12 h-12 rounded-full">
+                    <p class="text-gray-800">Facebook<br>Menlo Park, USA</p>
+                </div>
+                <button class="absolute bottom-4 right-4 text-gray-600 hover:text-blue-600 text-2xl">
+                    &#128276;
+                </button>
+            </div>
+
+            <!-- Job Card 5 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative">
+                <div class="bg-yellow-600 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">PART-TIME</div>
+                <h3 class="text-xl font-semibold mb-2">Content Writer</h3>
+                <p class="text-gray-600 mb-4">Salary: $30,000 - $40,000</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="Company Logo" class="w-12 h-12 rounded-full">
+                    <p class="text-gray-800">Google Inc.<br>London, UK</p>
+                </div>
+                <button class="absolute bottom-4 right-4 text-gray-600 hover:text-blue-600 text-2xl">
+                    &#128276;
+                </button>
+            </div>
+
+            <!-- Job Card 6 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative">
+                <div class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-4">INTERNSHIP</div>
+                <h3 class="text-xl font-semibold mb-2">Junior Graphic Designer</h3>
+                <p class="text-gray-600 mb-4">Salary: $20,000 - $25,000</p>
+                <div class="flex items-center gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/768px-Microsoft_logo.svg.png" alt="Company Logo" class="w-12 h-12 rounded-full">
+                    <p class="text-gray-800">Microsoft<br>New York, USA</p>
+                </div>
+                <button class="absolute bottom-4 right-4 text-gray-600 hover:text-blue-600 text-2xl">
+                    &#128276;
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 shadow-md mt-8">
+        <div class="container mx-auto text-center text-gray-600">
+            © 2024 ExpertLancer. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.remove('-translate-x-full');
+        });
+
+        document.getElementById('close-menu').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.add('-translate-x-full');
+        });
+    </script>
+</body>
+
+</html>

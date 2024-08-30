@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Create Account</title>
+</head>
+<body class="bg-blue-500 flex items-center justify-center min-h-screen p-6">
+    <div class="relative bg-white p-10 rounded-xl shadow-lg max-w-lg w-full overflow-hidden">
+        <!-- Subtle gradient overlay for design effect -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-5 pointer-events-none"></div>
+        
+        <h2 class="text-4xl font-bold mb-8 text-center text-gray-900 relative z-10">Create Your Account</h2>
+        
+        <form action="/register-user" method="post" enctype="multipart/form-data" class="space-y-6 relative z-10">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input id="email" name="email" type="email" placeholder="Enter your email" required class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out">
+            </div>
+            <div>
+                <label for="image" class="block text-sm font-medium text-gray-700">Profile Image</label>
+                <input id="image" name="image" type="file" accept="image/*" aria-label="Upload Profile Image" class="block w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out">
+                <p class="text-gray-500 text-xs mt-1">Upload a profile image (optional)</p>
+            </div>
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input id="username" name="username" type="text" placeholder="Enter your username" required class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out">
+            </div>
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                <input id="name" name="name" type="text" placeholder="Enter your full name" required class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter your password" required class="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out">
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">Create Account</button>
+        </form>
+        
+        <div class="mt-8 text-center relative z-10">
+            <a href="/login-user" class="text-blue-600 hover:underline">Already have an account? Login here.</a>
+        </div>
+    </div>
+</body>
+</html>

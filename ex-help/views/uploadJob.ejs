@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Upload Job Opening</title>
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-gray-300 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold mb-6 text-indigo-900 text-center">Upload Job Opening</h1>
+        <form action="/job/upload" method="POST" >
+            <!-- Job Title -->
+            <div class="mb-4">
+                <label for="title" class="block text-gray-700 font-semibold mb-2">Job Title</label>
+                <input type="text" id="title" name="title" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter job title" required>
+            </div>
+            
+            <!-- Job Description -->
+            <div class="mb-4">
+                <label for="description" class="block text-gray-700 font-semibold mb-2">Job Description</label>
+                <textarea id="description" name="description" rows="4" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter job description" required></textarea>
+            </div>
+            
+            <!-- Location -->
+            <div class="mb-4">
+                <label for="location" class="block text-gray-700 font-semibold mb-2">Location</label>
+                <input type="text" id="location" name="location" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter job location" required>
+            </div>
+            
+            <!-- Salary -->
+            <div class="mb-4">
+                <label for="salary" class="block text-gray-700 font-semibold mb-2">Salary</label>
+                <input type="text" id="salary" name="salary" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter salary" required>
+            </div>
+        
+        
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                    <i class="ri-upload-cloud-line mr-2"></i> Submit Job Opening
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
