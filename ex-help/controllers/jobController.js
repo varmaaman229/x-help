@@ -9,7 +9,7 @@ module.exports.uploadJobPageController = async function (req, res) {
 // Handle job upload
 module.exports.uploadJobController = async function (req, res) {
     try {
-        const { title, description, location, salary } = req.body;
+        const { title, description, location, salary, jobType, company, companyLogo, applicationDeadline } = req.body;
         const userId = req.user._id;
 
         const newJob = new Job({
@@ -17,6 +17,10 @@ module.exports.uploadJobController = async function (req, res) {
             description,
             location,
             salary,
+            jobType,
+            company,
+            companyLogo,
+            applicationDeadline,
             user: userId
         });
 
@@ -58,8 +62,8 @@ module.exports.editJobPageController = async function (req, res) {
 // Handle job edit
 module.exports.editJobController = async function (req, res) {
     try {
-        const { title, description, location, salary } = req.body;
-        await Job.findByIdAndUpdate(req.params.id, { title, description, location, salary });
+        const { title, description, location, salary, jobType, company, companyLogo, applicationDeadline } = req.body;
+        await Job.findByIdAndUpdate(req.params.id, { title, description, location, salary, jobType, company, companyLogo, applicationDeadline });
         res.redirect('/user-profile');
     } catch (error) {
         res.status(500).send(error.message);

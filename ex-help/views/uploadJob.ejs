@@ -10,7 +10,7 @@
 <body class="bg-gradient-to-r from-gray-100 to-gray-300 min-h-screen flex items-center justify-center">
     <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
         <h1 class="text-3xl font-bold mb-6 text-indigo-900 text-center">Upload Job Opening</h1>
-        <form action="/job/upload" method="POST" >
+        <form action="/job/upload" method="POST">
             <!-- Job Title -->
             <div class="mb-4">
                 <label for="title" class="block text-gray-700 font-semibold mb-2">Job Title</label>
@@ -34,7 +34,35 @@
                 <label for="salary" class="block text-gray-700 font-semibold mb-2">Salary</label>
                 <input type="text" id="salary" name="salary" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter salary" required>
             </div>
-        
+
+            <!-- Job Type -->
+            <div class="mb-4">
+                <label for="jobType" class="block text-gray-700 font-semibold mb-2">Job Type</label>
+                <select id="jobType" name="jobType" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required>
+                    <option value="" disabled selected>Select job type</option>
+                    <option value="Full-Time">Full-Time</option>
+                    <option value="Part-Time">Part-Time</option>
+                    <option value="Remote">Remote</option>
+                </select>
+            </div>
+
+            <!-- Company -->
+            <div class="mb-4">
+                <label for="company" class="block text-gray-700 font-semibold mb-2">Company</label>
+                <input type="text" id="company" name="company" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter company name" required>
+            </div>
+
+            <!-- Company Logo -->
+            <div class="mb-4">
+                <label for="companyLogo" class="block text-gray-700 font-semibold mb-2">Company Logo URL</label>
+                <input type="text" id="companyLogo" name="companyLogo" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" placeholder="Enter company logo URL">
+            </div>
+
+            <!-- Application Deadline -->
+            <div class="mb-4">
+                <label for="applicationDeadline" class="block text-gray-700 font-semibold mb-2">Application Deadline</label>
+                <input type="date" id="applicationDeadline" name="applicationDeadline" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required>
+            </div>
         
             <!-- Submit Button -->
             <div class="text-center">

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css">
+</head>
+
+<body class="min-h-screen flex flex-col bg-gray-100">
+    <!-- Navbar Header -->
+    <header class="bg-white shadow-md py-4 px-6">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a class="flex items-center space-x-2 text-2xl font-bold text-blue-600" href="/">
+              
+                <span>ExpertLancer</span>
+            </a>
+            <!-- Additional Navbar Code (if any) -->
+        </div>
+    </header>
+
+    <!-- Job Details -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6 text-gray-900"><%= job.title %></h1>
+            <div class="space-y-4">
+                <p class="text-gray-700"><span class="font-semibold">Company:</span> <%= job.company %></p>
+                <div class="flex items-center space-x-4">
+                    <img src="<%= job.companyLogo %>" alt="<%= job.company %> Logo" class="h-16 w-16 object-contain">
+                </div>
+                <p class="text-gray-700"><span class="font-semibold">Location:</span> <%= job.location %></p>
+                <p class="text-gray-700"><span class="font-semibold">Salary:</span> <%= job.salary %></p>
+                <p class="text-gray-700"><span class="font-semibold">Job Type:</span> <%= job.jobType %></p>
+                <p class="text-gray-700"><span class="font-semibold">Application Deadline:</span> <%= new Date(job.applicationDeadline).toLocaleDateString() %></p>
+            </div>
+            <div class="mt-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-900">Job Description</h2>
+                <p class="text-gray-700 leading-relaxed"><%= job.description %></p>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="/apply/<%= job._id %>" class="bg-blue-600 text-white py-3 px-6 rounded-lg shadow hover:bg-blue-700 transition">Apply Now</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 shadow-md mt-8">
+        <div class="container mx-auto text-center text-gray-600">
+            <p>© 2024 ExpertLancer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

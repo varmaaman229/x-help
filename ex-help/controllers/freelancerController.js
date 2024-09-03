@@ -1,6 +1,10 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Freelancer = require('../models/freelancer');
+const Job = require('../models/job');
+const Project = require('../models/project');
+
+const upload = require('../config/multer-config'); 
 
 module.exports.homepageController = function (req, res) {
   res.render("index"); 
@@ -87,21 +91,109 @@ module.exports.registerFreelancer = async function (req, res) {
 };
 
 
-
-
-
-
-
-
-
 module.exports.homeafterloginController = async function (req, res, next) {
   res.render('freelancerhome');
 }
-
-module.exports.jobdisplayController = async function (req , res, next) {
-  res.render('jobdisplay');
+module.exports.jobdisplayController = async function (req, res, next) {
+  try {
+    const jobs = await Job.find({}).select('-user'); // Retrieve jobs from database
+    res.render('jobdisplay', { jobs }); // Pass jobs to the view
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
+  }
 }
 
-module.exports.projectdisplayController = async function (req , res, next) {
-  res.render('projectdisplay');
-}
+module.exports.jobDetailsController = async function (req, res, next) {
+  try {
+    const jobId = req.params.id;
+    const job = await Job.findById(jobId);
+
+    if (!job) {
+      return res.status(404).json({ message: 'Job not found' });
+    }
+
+    res.render('jobDetails', { job });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
+  }
+};
+
+
+
+
+
+module.exports.applyNowPageController = async (req, res) => {
+    try {
+        const jobId = req.params.id;
+        const job = await Job.findById(jobId);
+
+        if (!job) {
+            return res.status(404).json({ message: 'Job not found' });
+        }
+
+        res.render('apply-now', { job });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
+    }
+};
+
+module.exports.submitApplication = async (req, res) => {
+  try {
+      const jobId = req.params.id;
+      const { coverLetter } = req.body;
+      const resume = req.file; // Access the file from memory storage
+
+      if (!coverLetter || !resume) {
+          return res.status(400).json({ message: 'All fields are required' });
+      }
+
+      const job = await Job.findById(jobId);
+      if (!job) {
+          return res.status(404).json({ message: 'Job not found' });
+      }
+
+      const application = new Application({
+          job: jobId,
+          freelancer: req.user._id, // Use req.user._id for the freelancer ID
+          coverLetter,
+          resume: resume.buffer // Store file buffer securely
+      });
+
+      await application.save();
+
+      res.redirect('/freelancerhome'); // Redirect after successful application
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
+  }
+};
+
+
+module.exports.projectdisplayController = async function (req, res, next) {
+  try {
+    const projects = await Project.find({}).populate('user', 'username'); // Populate only username
+    res.render('projectdisplay', { projects });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
+  }
+};
+
+module.exports.projectDetailsController = async function (req, res) {
+  try {
+    const projectId = req.params.id;
+    const project = await Project.findById(projectId).populate('user', 'username');
+
+    if (!project) {
+      return res.status(404).json({ message: 'Project not found' });
+    }
+
+    res.render('projectDetails', { project });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'An unexpected error occurred. Please try again later.' });
+  }
+};
