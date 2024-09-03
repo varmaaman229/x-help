@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require('../config/multer-config'); // Adjust path as needed
 
 const {
     homepageController,
@@ -9,7 +10,11 @@ const {
     registerFreelancer,
     homeafterloginController,
     jobdisplayController,
-    projectdisplayController
+    jobDetailsController, 
+    applyNowPageController, 
+    submitApplication ,
+    projectdisplayController,
+    projectDetailsController
 } = require("../controllers/freelancerController");
 
 const {
@@ -39,11 +44,18 @@ router.post('/register-freelancer', async (req, res) => {
     }
 });
 
-// Home after login (only accessible if logged in)
+// Freelancer home
 router.get('/freelancerhome', isFreelancerLoggedIn, homeafterloginController);
 
-// Job and Project display (only accessible if logged in)
+// Job display and details
 router.get('/jobdisplay', isFreelancerLoggedIn, jobdisplayController);
+router.get('/job/:id', isFreelancerLoggedIn, jobDetailsController);
+
+router.get('/apply/:id', isFreelancerLoggedIn, applyNowPageController);
+router.post('/apply/:id', isFreelancerLoggedIn, upload.single('resume'), submitApplication);
+
+// Project display
 router.get('/projectdisplay', isFreelancerLoggedIn, projectdisplayController);
+router.get('/project/:id', isFreelancerLoggedIn, projectDetailsController);
 
 module.exports = router;

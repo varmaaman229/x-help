@@ -24,10 +24,16 @@ const ProjectSchema = new Schema({
         ref: 'User',
         required: [true, 'User is required']
     },
+    category: {
+        type: String,
+        required: [true, 'Category is required'],
+        enum: ['Web Development', 'Mobile Development', 'Data Science', 'Machine Learning', 'Others'], // Example categories
+        default: 'Others' // Default category if none is provided
+    },
     created_at: {
         type: Date,
         default: Date.now
-      }
+    }
 });
 
 module.exports = mongoose.models.Project || mongoose.model('Project', ProjectSchema);

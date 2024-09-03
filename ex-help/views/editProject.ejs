@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Edit Project</title>
 </head>
+
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800">Edit Project</h1>
-        
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">Edit Project</h1>
+
         <form action="/project/edit/<%= project._id %>" method="POST" enctype="multipart/form-data">
+            <!-- Title Field -->
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="title">Title</label>
-                <input type="text" name="title" id="title" value="<%= project.title %>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <label for="title" class="block text-gray-700 text-sm font-semibold mb-2">Title</label>
+                <input type="text" id="title" name="title" value="<%= project.title %>" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required>
             </div>
+
+            <!-- Description Field -->
             <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description</label>
-                <textarea name="description" id="description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required><%= project.description %></textarea>
+                <label for="description" class="block text-gray-700 text-sm font-semibold mb-2">Description</label>
+                <textarea id="description" name="description" rows="4" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required><%= project.description %></textarea>
             </div>
+
+            <!-- Category Field -->
+            <div class="mb-4">
+                <label for="category" class="block text-gray-700 text-sm font-semibold mb-2">Category</label>
+                <select id="category" name="category" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required>
+                    <option value="" disabled>Select a category</option>
+                    <option value="Web Development" <%= project.category === 'Web Development' ? 'selected' : '' %>>Web Development</option>
+                    <option value="Mobile Development" <%= project.category === 'Mobile Development' ? 'selected' : '' %>>Mobile Development</option>
+                    <option value="Data Science" <%= project.category === 'Data Science' ? 'selected' : '' %>>Data Science</option>
+                    <option value="Machine Learning" <%= project.category === 'Machine Learning' ? 'selected' : '' %>>Machine Learning</option>
+                    <option value="Others" <%= project.category === 'Others' ? 'selected' : '' %>>Others</option>
+                </select>
+            </div>
+
+            <!-- PDF Upload Field (optional) -->
+            <div class="mb-4">
+                <label for="pdf" class="block text-gray-700 text-sm font-semibold mb-2">Upload New PDF (if applicable)</label>
+                <input type="file" id="pdf" name="pdf" accept=".pdf" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600">
+            </div>
+
+            <!-- Submit and Cancel Buttons -->
             <div class="flex justify-between items-center">
-                <button type="submit" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-800">Update Project</button>
+                <button type="submit" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                    Update Project
+                </button>
                 <a href="/user-profile" class="text-gray-600 hover:text-gray-800">Cancel</a>
             </div>
         </form>
     </div>
 </body>
+
 </html>

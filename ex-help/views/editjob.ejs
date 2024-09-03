@@ -19,23 +19,61 @@
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="container">
         <h1 class="text-3xl font-bold mb-6 text-center text-indigo-900">Edit Job</h1>
-        <form action="/job/edit/<%= job._id %>" method="POST" class="space-y-4">
+        <form action="/job/edit/<%= job._id %>" method="POST" class="space-y-6">
+            <!-- Job Title -->
             <div>
                 <label for="title" class="block text-lg font-medium text-gray-700">Title:</label>
-                <input type="text" id="title" name="title" value="<%= job.title %>" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input type="text" id="title" name="title" value="<%= job.title %>" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
+            
+            <!-- Job Description -->
             <div>
                 <label for="description" class="block text-lg font-medium text-gray-700">Description:</label>
-                <textarea id="description" name="description" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"><%= job.description %></textarea>
+                <textarea id="description" name="description" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" rows="4"><%= job.description %></textarea>
             </div>
+            
+            <!-- Job Location -->
             <div>
                 <label for="location" class="block text-lg font-medium text-gray-700">Location:</label>
-                <input type="text" id="location" name="location" value="<%= job.location %>" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input type="text" id="location" name="location" value="<%= job.location %>" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
+            
+            <!-- Job Salary -->
             <div>
                 <label for="salary" class="block text-lg font-medium text-gray-700">Salary:</label>
-                <input type="text" id="salary" name="salary" value="<%= job.salary %>" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input type="text" id="salary" name="salary" value="<%= job.salary %>" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
+
+            <!-- Job Type -->
+            <div>
+                <label for="jobType" class="block text-lg font-medium text-gray-700">Job Type:</label>
+                <select id="jobType" name="jobType" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="" disabled>Select job type</option>
+                    <option value="Full-Time" <%= job.jobType === 'Full-Time' ? 'selected' : '' %>>Full-Time</option>
+                    <option value="Part-Time" <%= job.jobType === 'Part-Time' ? 'selected' : '' %>>Part-Time</option>
+                    <option value="Remote" <%= job.jobType === 'Remote' ? 'selected' : '' %>>Remote</option>
+                </select>
+            </div>
+
+            <!-- Company Name -->
+            <div>
+                <label for="company" class="block text-lg font-medium text-gray-700">Company:</label>
+                <input type="text" id="company" name="company" value="<%= job.company %>" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <!-- Company Logo URL -->
+            <div>
+                <label for="companyLogo" class="block text-lg font-medium text-gray-700">Company Logo URL:</label>
+                <input type="text" id="companyLogo" name="companyLogo" value="<%= job.companyLogo %>" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <!-- Application Deadline -->
+            <div>
+                <label for="applicationDeadline" class="block text-lg font-medium text-gray-700">Application Deadline:</label>
+                <input type="date" id="applicationDeadline" name="applicationDeadline" value="<%= job.applicationDeadline.toISOString().split('T')[0] %>" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <!-- Buttons -->
             <div class="flex justify-between">
                 <a href="/user-profile" class="text-blue-500 hover:text-blue-700">Back to Profile</a>
                 <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600">Update Job</button>
